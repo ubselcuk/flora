@@ -8,7 +8,7 @@ Color kFoamColor = const Color(0xFFEBFDF2);
 Color kGreyColor = Colors.grey.shade600;
 
 // Splash Screen Colors
-Color splashMainColor = Colors.teal;
+MaterialColor splashMainColor = Colors.purple;
 
 TextStyle kBillTextStyle = GoogleFonts.poppins(
   color: kDarkGreenColor,

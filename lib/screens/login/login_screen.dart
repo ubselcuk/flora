@@ -18,13 +18,21 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: CustomTextField(
-        hintText: 'Username',
-        icon: Icons.person,
-        keyboardType: TextInputType.name,
-        onChanged: (value) {
-          user = value != '' ? value : '';
-        },
+      child: Container(
+        color: Colors.green.shade400,
+        child: Column(
+          children: [
+            SizedBox(height: 50),
+            CustomTextField(
+              hintText: 'Username',
+              icon: Icons.person,
+              keyboardType: TextInputType.name,
+              onChanged: (value) {
+                user = value != '' ? value : '';
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

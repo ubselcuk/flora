@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flora/constants.dart';
+import 'package:flora/data.dart';
 import 'package:flora/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,8 +26,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Widget _screen(BuildContext context) {
+    var randomPlant = Random().nextInt(plants.length);
     return Container(
-      color: Colors.teal.shade100,
+      color: splashMainColor.shade100,
       child: Column(
         children: [
           const SizedBox(
@@ -49,14 +54,14 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 250,
             width: 250,
             child: Container(
-              color: Colors.teal.shade200,
+              color: splashMainColor.shade200,
             ),
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
-            'Papatya',
+            plants[randomPlant].plantName,
             style: GoogleFonts.poppins(
               color: splashMainColor,
               fontWeight: FontWeight.w600,
@@ -67,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 10,
           ),
           Text(
-            'Çiçek işte aw bişeyler bişeyler\nbişeyler daha bişeyler',
+            plants[randomPlant].info,
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: splashMainColor,
@@ -76,10 +81,15 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           const SizedBox(
-            height: 60,
+            height: 40,
           ),
-          const CircularProgressIndicator(
-            color: Colors.teal,
+          SizedBox(
+            width: 70,
+            height: 70,
+            child: LoadingIndicator(
+              indicatorType: Indicator.orbit,
+              colors: [splashMainColor.shade300],
+            ),
           )
         ],
       ),
