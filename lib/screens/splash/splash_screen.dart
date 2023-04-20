@@ -71,13 +71,16 @@ class _SplashScreenState extends State<SplashScreen> {
           const SizedBox(
             height: 10,
           ),
-          Text(
-            plants[randomPlant].info,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-              color: splashMainColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 12.0,
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: Text(
+              plants[randomPlant].info,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                color: splashMainColor,
+                fontWeight: FontWeight.w600,
+                fontSize: 12.0,
+              ),
             ),
           ),
           const SizedBox(

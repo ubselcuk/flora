@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-Color kDarkGreenColor = const Color(0xFF184A2C);
-Color kGinColor = const Color(0xFFE5F0EA);
-Color kSpiritedGreen = const Color(0xFFC1DFCB);
-Color kFoamColor = const Color(0xFFEBFDF2);
-Color kGreyColor = Colors.grey.shade600;
+// Main Constans
+String mainTitle = 'FLORA';
+ThemeData mainThemeData = ThemeData(
+  primarySwatch: Colors.green,
+);
 
 // Splash Screen Colors
 MaterialColor splashMainColor = Colors.purple;
 
-TextStyle kBillTextStyle = GoogleFonts.poppins(
-  color: kDarkGreenColor,
-  fontSize: 15.0,
-);
+// Custom Text Field Colors
+Color ctfBackgroundColor = Colors.green.shade50;
+Color ctfCursorColor = Colors.green;
+Color ctfTextColor = Colors.black;
+Color ctfIconColor = Colors.black;
+Color ctfBorderColor = Colors.red.shade200;
+Color ctfBorderFocusedColor = Colors.green.shade600;
+
+// Login Colors
+Color loginMainColor = Colors.teal.shade400;
+Color loginFontColor = Colors.teal.shade900;
+Color loginAuthColor = Colors.teal;

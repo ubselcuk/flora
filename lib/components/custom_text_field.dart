@@ -21,38 +21,38 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
+      padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 15.0),
       child: TextField(
-        cursorColor: kDarkGreenColor,
+        cursorColor: ctfCursorColor,
         obscureText: obscureText,
         keyboardType: keyboardType,
         style: GoogleFonts.poppins(
-          color: kDarkGreenColor,
+          color: ctfTextColor,
           fontWeight: FontWeight.w600,
           fontSize: 15.0,
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(18.0),
           filled: true,
-          fillColor: kGinColor,
+          fillColor: ctfBackgroundColor,
           prefixIcon: Icon(
             icon,
             size: 24.0,
-            color: kDarkGreenColor,
+            color: ctfIconColor,
           ),
           hintText: hintText,
           hintStyle: GoogleFonts.poppins(
-            color: kDarkGreenColor,
+            color: ctfTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 15.0,
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: kGinColor),
+            borderRadius: BorderRadius.circular(50.0),
+            borderSide: BorderSide(color: ctfBorderColor, width: 4),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: kDarkGreenColor),
+            borderRadius: BorderRadius.circular(50.0),
+            borderSide: BorderSide(color: ctfBorderFocusedColor, width: 4),
           ),
         ),
         onChanged: onChanged,
