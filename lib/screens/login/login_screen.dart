@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
         color: loginMainColor,
         child: Column(
           children: [
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Text(
               'LOGIN',
               style: GoogleFonts.poppins(

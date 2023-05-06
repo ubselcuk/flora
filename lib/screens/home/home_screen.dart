@@ -36,25 +36,23 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(DateTime.now().weekdayName().toString()),
-            Text('BBB')
+            const Text('BBB')
           ],
         ),
       ),
-      body: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 200),
-            CustomButton(
-              label: '+',
-              btn: true,
-              ico: Icons.add,
-              onPressed: () {
-                Navigator.pushNamed(context, PlantScreen.id);
-              },
-            ),
-          ],
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 200),
+          CustomButton(
+            label: '+',
+            btn: true,
+            ico: Icons.add,
+            onPressed: () {
+              Navigator.pushNamed(context, PlantScreen.id);
+            },
+          ),
+        ],
       ),
     );
   }
