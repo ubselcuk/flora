@@ -30,7 +30,8 @@ class _PlantScreenState extends State<PlantScreen> {
                   itemCount: plants.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(
+                          left: 12, right: 12, bottom: 12),
                       child: InkWell(
                         onTap: () {
                           Navigator.pushNamed(

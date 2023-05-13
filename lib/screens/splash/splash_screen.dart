@@ -5,6 +5,7 @@ import 'package:flora/constants.dart';
 import 'package:flora/data.dart';
 import 'package:flora/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
@@ -20,6 +21,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return Material(
       child: _screen(context),
     );
@@ -27,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget _screen(BuildContext context) {
     var randomPlant = Random().nextInt(plants.length);
+
     return Container(
       color: splashMainColor.shade100,
       child: Column(
