@@ -4,13 +4,13 @@ List<Plant> plants = [
   Plant(
     id: 1,
     plantName: 'Papatya',
-    plantType: '',
+    plantType: 'Ev',
     image: '',
     info:
         'Asteraceae ailesine ait, beyaz yaprakları ve sarı ortası olan küçük çiçekleri bulunan bir bitkidir.',
     shortInfo: "Sarı ortası, beyaz yaprakları olan bir çiçek.",
     water: 0.0,
-    waterDay: "Haftada 1-2",
+    waterDay: "Haftada 1-2 kez",
     dirtType: "",
   ),
   Plant(
@@ -75,7 +75,7 @@ List<Plant> plants = [
   ),
   Plant(
     id: 5,
-    plantName: 'Gül',
+    plantName: 'ü',
     plantType: '',
     image: '',
     info:
@@ -87,7 +87,7 @@ List<Plant> plants = [
   ),
   Plant(
     id: 5,
-    plantName: 'Gül',
+    plantName: 'ü',
     plantType: '',
     image: '',
     info:

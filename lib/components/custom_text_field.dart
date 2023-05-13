@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
     required this.keyboardType,
     required this.onChanged,
     Key? key,
+    this.onTap,
+    this.onTapOutside,
   }) : super(key: key);
 
   final String hintText;
@@ -17,6 +19,8 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final Function(String) onChanged;
+  final Function()? onTap;
+  final Function(PointerDownEvent)? onTapOutside;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +60,8 @@ class CustomTextField extends StatelessWidget {
           ),
         ),
         onChanged: onChanged,
+        onTap: onTap,
+        onTapOutside: onTapOutside,
       ),
     );
   }

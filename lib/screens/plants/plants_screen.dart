@@ -33,7 +33,6 @@ class _PlantScreenState extends State<PlantScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {
-                          debugPrint("${plants[index].id} selected");
                           Navigator.pushNamed(
                             context,
                             SelectedPlantScreen.id,
