@@ -3,21 +3,24 @@ import 'package:flutter/material.dart';
 // Main Constans
 String mainTitle = 'FLORA';
 ThemeData mainThemeData = ThemeData(
-  primarySwatch: Colors.green,
+  primarySwatch: Colors.teal,
 );
 
 // Splash Screen Colors
-MaterialColor splashMainColor = Colors.purple;
+MaterialColor splashMainColor = Colors.teal;
 
 // Custom Text Field Colors
 Color ctfBackgroundColor = Colors.green.shade50;
 Color ctfCursorColor = Colors.green;
-Color ctfTextColor = Colors.black;
-Color ctfIconColor = Colors.black;
-Color ctfBorderColor = Colors.red.shade200;
-Color ctfBorderFocusedColor = Colors.green.shade600;
+Color ctfTextColor = Colors.teal;
+Color ctfIconColor = Colors.teal;
+Color ctfBorderColor = Colors.teal.shade300;
+Color ctfBorderFocusedColor = Colors.teal;
 
 // Login Colors
-Color loginMainColor = Colors.teal.shade400;
-Color loginFontColor = Colors.teal.shade900;
+Color loginMainColor = Colors.teal.shade100;
+Color loginFontColor = Colors.teal;
 Color loginAuthColor = Colors.teal;
+
+// Plants Screen
+Color plantsBackgroundColor = Colors.green.shade50;

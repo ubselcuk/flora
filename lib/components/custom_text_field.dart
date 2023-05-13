@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 15.0),
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
       child: TextField(
         cursorColor: ctfCursorColor,
         obscureText: obscureText,
@@ -32,7 +32,7 @@ class CustomTextField extends StatelessWidget {
           fontSize: 15.0,
         ),
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(18.0),
+          contentPadding: const EdgeInsets.all(16.0),
           filled: true,
           fillColor: ctfBackgroundColor,
           prefixIcon: Icon(
@@ -47,11 +47,11 @@ class CustomTextField extends StatelessWidget {
             fontSize: 15.0,
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(40.0),
             borderSide: BorderSide(color: ctfBorderColor, width: 4),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(40.0),
             borderSide: BorderSide(color: ctfBorderFocusedColor, width: 4),
           ),
         ),

@@ -12,6 +12,11 @@ class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
   @override
   Widget build(BuildContext context) {
     final arguments = ModalRoute.of(context)?.settings.arguments as Map;
-    return Text(arguments['selectedPlant'].id.toString());
+    return Column(
+      children: [
+        Text(arguments['selectedPlant'].id.toString()),
+        
+      ],
+    );
   }
 }

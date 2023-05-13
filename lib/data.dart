@@ -61,4 +61,40 @@ List<Plant> plants = [
     waterDay: "Haftada 1-2",
     dirtType: "",
   ),
+  Plant(
+    id: 5,
+    plantName: 'Gül',
+    plantType: '',
+    image: '',
+    info:
+        'Süs bitkisi olarak kullanılırlar ve aynı zamanda güzel kokuları nedeniyle parfüm ve kozmetik endüstrisinde de kullanılırlar.',
+    shortInfo: "Hoş kokulu, renkli çiçekleri olan bir bitki.",
+    water: 0.0,
+    waterDay: "Haftada 1-2",
+    dirtType: "",
+  ),
+  Plant(
+    id: 5,
+    plantName: 'Gül',
+    plantType: '',
+    image: '',
+    info:
+        'Süs bitkisi olarak kullanılırlar ve aynı zamanda güzel kokuları nedeniyle parfüm ve kozmetik endüstrisinde de kullanılırlar.',
+    shortInfo: "Hoş kokulu, renkli çiçekleri olan bir bitki.",
+    water: 0.0,
+    waterDay: "Haftada 1-2",
+    dirtType: "",
+  ),
+  Plant(
+    id: 5,
+    plantName: 'Gül',
+    plantType: '',
+    image: '',
+    info:
+        'Süs bitkisi olarak kullanılırlar ve aynı zamanda güzel kokuları nedeniyle parfüm ve kozmetik endüstrisinde de kullanılırlar.',
+    shortInfo: "Hoş kokulu, renkli çiçekleri olan bir bitki.",
+    water: 0.0,
+    waterDay: "Haftada 1-2",
+    dirtType: "",
+  ),
 ];
