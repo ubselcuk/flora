@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flora/components/custom_button.dart';
 import 'package:flora/components/custom_text_field.dart';
 import 'package:flora/constants.dart';
 import 'package:flora/screens/home/home_screen.dart';
 import 'package:flora/screens/login/register_screen.dart';
+import 'package:flora/sql.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
@@ -14,6 +17,21 @@ class LoginScreen extends StatefulWidget {
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
+}
+
+login(String pass, String user, var c) async {
+  var login = await db(
+      "SELECT * FROM users WHERE password='$pass' and username='$user'");
+  if (login.length == 1) {
+    Navigator.pushNamed(c, HomeScreen.id);
+  } else {
+    showOkAlertDialog(
+      context: c,
+      okLabel: "Tamam",
+      title: "Kullanıcı adı veya şifre hatalı!",
+      style: AdaptiveStyle.iOS,
+    );
+  }
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -72,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: AdaptiveStyle.iOS,
                             );
                           } else {
-                            Navigator.pushNamed(context, HomeScreen.id);
+                            login(pass, user, context);
                           }
                         },
                       ),

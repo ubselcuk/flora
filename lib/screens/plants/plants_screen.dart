@@ -23,7 +23,7 @@ class _PlantScreenState extends State<PlantScreen> {
           physics: const ScrollPhysics(),
           child: Column(
             children: [
-              //Image.asset('assets/qwe.png'),
+              Image.asset('assets/qwe.png'),
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -59,7 +59,16 @@ class _PlantScreenState extends State<PlantScreen> {
                                           Radius.circular(16),
                                         ),
                                         color: Colors.teal.shade100),
-                                    child: const Center(child: Text('Image')),
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Container(
+                                            color: Colors.white,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Image.asset(
+                                                  plants[index].image),
+                                            ))),
                                   ),
                                 ),
                               ),

@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flora/constants.dart';
 import 'package:flora/data.dart';
 import 'package:flora/screens/login/login_screen.dart';
@@ -18,10 +16,21 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
+autoLogin(context) async {
+  await Future.delayed(const Duration(seconds: 2))
+      .then((value) => Navigator.pushNamed(context, LoginScreen.id));
+}
+
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    //autoLogin(context);
     return Material(
       child: _screen(context),
     );
@@ -34,67 +43,87 @@ class _SplashScreenState extends State<SplashScreen> {
       color: splashMainColor.shade100,
       child: Column(
         children: [
-          const SizedBox(
-            height: 40,
-          ),
-          IconButton(
-            onPressed: () => Navigator.pushNamed(context, LoginScreen.id),
-            icon: Icon(
-              EvaIcons.battery,
-              color: splashMainColor,
-              size: 32,
-            ),
-          ),
-          Text(
-            'FLORA',
-            style: GoogleFonts.poppins(
-              color: splashMainColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 64.0,
-            ),
-          ),
-          SizedBox(
-            height: 250,
-            width: 250,
-            child: Container(
-              color: splashMainColor.shade200,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            plants[randomPlant].plantName,
-            style: GoogleFonts.poppins(
-              color: splashMainColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 22.0,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Text(
-              plants[randomPlant].info,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                color: splashMainColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 12.0,
+          Expanded(
+            flex: 4,
+            child: Center(
+              child: Text(
+                'FLORA',
+                style: GoogleFonts.poppins(
+                  color: splashMainColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 64.0,
+                ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 40,
+          Expanded(
+            flex: 5,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
+              child: SizedBox(
+                height: 250,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(44),
+                  child: Container(
+                    color: Colors.teal,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(40),
+                        child: Container(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(plants[randomPlant].image),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
-          SizedBox(
-            width: 70,
-            height: 70,
-            child: LoadingIndicator(
-              indicatorType: Indicator.orbit,
-              colors: [splashMainColor.shade300],
+          Expanded(
+            flex: 2,
+            child: Center(
+              child: Text(
+                plants[randomPlant].plantName,
+                style: GoogleFonts.poppins(
+                  color: splashMainColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 30.0,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                child: Text(
+                  plants[randomPlant].info,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: splashMainColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: SizedBox(
+              width: 70,
+              height: 70,
+              child: LoadingIndicator(
+                indicatorType: Indicator.ballBeat,
+                colors: [splashMainColor.shade300],
+              ),
             ),
           )
         ],

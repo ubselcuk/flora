@@ -2,6 +2,8 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flora/components/custom_button.dart';
 import 'package:flora/components/custom_text_field.dart';
 import 'package:flora/constants.dart';
+import 'package:flora/screens/home/home_screen.dart';
+import 'package:flora/sql.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +14,23 @@ class RegisterScreen extends StatefulWidget {
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+check(String email, String user, String pass, c) async {
+  await db(
+      "INSERT INTO users(mail, password, username) VALUES('$email','$pass','$user')");
+  var check = await db(
+      "SELECT * FROM users WHERE username='$user' and password='$pass'");
+  if (check.length == 1) {
+    Navigator.pushNamed(c, HomeScreen.id);
+  } else {
+    showOkAlertDialog(
+      context: c,
+      okLabel: "Tamam",
+      title: "Kayıt Sırasında Hata Oluştu!",
+      style: AdaptiveStyle.iOS,
+    );
+  }
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
@@ -78,6 +97,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   "Kullanıcı adı, şifre veya email boş geçilemez!",
                               style: AdaptiveStyle.iOS,
                             );
+                          } else {
+                            check(email, user, pass, context);
                           }
                         },
                       ),

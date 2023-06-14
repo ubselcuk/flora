@@ -33,7 +33,7 @@ class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
                 ),
                 color: Colors.teal),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
@@ -70,39 +70,46 @@ class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
                     ),
                   ),
                 ),
-                /*
-                Visibility(
-                  visible: vis,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20, right: 20, bottom: 8, top: 8),
-                    child: Container(
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(60),
-                          ),
-                          color: Colors.white),
-                      child: Row(
-                        children: const [
-                          SizedBox(
-                            height: 4,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),*/
                 Visibility(
                   visible: !vis,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: LoadingIndicator(
-                        indicatorType: Indicator.ballPulseSync,
-                        colors: [splashMainColor.shade50],
-                      ),
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: LoadingIndicator(
+                            indicatorType: Indicator.ballPulseSync,
+                            colors: [splashMainColor.shade50],
+                          ),
+                        ),
+                        Material(
+                          type: MaterialType.transparency,
+                          child: Ink(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.teal.shade50, width: 3.0),
+                              color: Colors.teal,
+                              shape: BoxShape.circle,
+                            ),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(500.0),
+                              onTap: () {
+                                // todo
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.all(0.0),
+                                child: Icon(
+                                  Icons.chevron_right_rounded,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
