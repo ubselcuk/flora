@@ -8,7 +8,5 @@ db(String q) async {
       password: 'password');
   await connection.open();
   List<List<dynamic>> results = await connection.query(q);
-
-  //var results = await connection.query(q);
   return results;
 }
