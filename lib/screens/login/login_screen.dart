@@ -23,6 +23,7 @@ login(String pass, String user, var c) async {
   var login = await db(
       "SELECT * FROM users WHERE password='$pass' and username='$user'");
   if (login.length == 1) {
+    globalId = login.last[0];
     Navigator.pushNamed(c, HomeScreen.id);
   } else {
     showOkAlertDialog(

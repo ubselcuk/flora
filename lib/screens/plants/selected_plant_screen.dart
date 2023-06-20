@@ -1,6 +1,9 @@
+import 'package:flora/components/custom_button.dart';
 import 'package:flora/components/custom_text_field.dart';
 import 'package:flora/constants.dart';
 import 'package:flora/constants.dart';
+import 'package:flora/screens/home/home_screen.dart';
+import 'package:flora/sql.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +19,7 @@ class SelectedPlantScreen extends StatefulWidget {
 
 class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
   String pi = '';
+  String plantName = '';
   bool vis = true;
   @override
   Widget build(BuildContext context) {
@@ -70,6 +74,7 @@ class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
                     ),
                   ),
                 ),
+                /*
                 Visibility(
                   visible: !vis,
                   child: Padding(
@@ -112,25 +117,85 @@ class _SelectedPlantScreenState extends State<SelectedPlantScreen> {
                       ],
                     ),
                   ),
+                ),*/
+
+                Visibility(
+                  visible: !vis,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.teal.shade50, width: 3.0),
+                          color: Colors.teal,
+                          shape: BoxShape.circle,
+                        ),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(500.0),
+                          onTap: () {
+                            db("""INSERT INTO plants(name, pico, "user",image ,"type") VALUES ('$plantName', '$pi', $globalId, '${myPlant.image}', ${myPlant.id});""");
+                            FocusManager.instance.primaryFocus?.unfocus();
+                            setState(() {
+                              vis = true;
+                            });
+                            Navigator.pushNamed(context, HomeScreen.id);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(0.0),
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                CustomTextField(
-                  hintText: 'Saksı numarası',
-                  icon: Icons.numbers,
-                  keyboardType: TextInputType.name,
-                  onChanged: (value) {
-                    pi = value != '' ? value : '';
-                  },
-                  onTap: () {
-                    setState(() {
-                      vis = false;
-                    });
-                  },
-                  onTapOutside: (p0) {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                    setState(() {
-                      vis = true;
-                    });
-                  },
+                Column(
+                  children: [
+                    CustomTextField(
+                      hintText: 'Bitkinin Adı',
+                      icon: Icons.numbers,
+                      keyboardType: TextInputType.name,
+                      onChanged: (value) {
+                        plantName = value != '' ? value : '';
+                      },
+                      onTap: () {
+                        setState(() {
+                          vis = false;
+                        });
+                      },
+                      //onTapOutside: (p0) {
+                      //  FocusManager.instance.primaryFocus?.unfocus();
+                      //  setState(() {
+                      //    vis = true;
+                      //  });
+                      //},
+                    ),
+                    CustomTextField(
+                      hintText: 'Saksı Numarası',
+                      icon: Icons.numbers,
+                      keyboardType: TextInputType.name,
+                      onChanged: (value) {
+                        pi = value != '' ? value : '';
+                      },
+                      onTap: () {
+                        setState(() {
+                          vis = false;
+                        });
+                      },
+                      //onTapOutside: (p0) {
+                      //  FocusManager.instance.primaryFocus?.unfocus();
+                      //  setState(() {
+                      //    vis = true;
+                      //  });
+                      //},
+                    ),
+                  ],
                 ),
               ],
             ),

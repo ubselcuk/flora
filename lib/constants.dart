@@ -24,3 +24,5 @@ Color loginAuthColor = Colors.teal;
 
 // Plants Screen
 Color plantsBackgroundColor = Colors.green.shade50;
+
+int? globalId;
